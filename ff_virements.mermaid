@@ -1,0 +1,125 @@
+---
+config:
+  layout: elk
+---
+flowchart TB
+ subgraph s1["Fortune Forge"]
+        FF_PENN("Fortune Forge Pennylane")
+        E["Fortune Forge CELC"]
+        n5["ursaff"]
+        n4["Meria"]
+        n19["Spizoo"]
+        n21["Finary"]
+        n23["ALAN"]
+        n24["Generali"]
+  end
+ subgraph s2["Nestup"]
+        n1["NESTUP PENNYLANE"]
+        n2["NESTUP CELC"]
+        n20["BPCE Assurance"]
+  end
+ subgraph s3["Damien Nestelhut"]
+        DN_CELC("Damien Nestelhut@CELC vir out 1617")
+        AUCOFFRE("Au Coffre")
+        n10["Compte Immo Noyant"]
+        DN_TR("Damien Nestelhut@Trade Republic")
+        n7["Private Equity"]
+  end
+ subgraph s4["PACS"]
+        JOINT_PREL("Compte joint - prelevements @CELC")
+        JOINT_DEPC("Compte joint - dep courantes @CELC")
+  end
+ subgraph s5["Block-Ops"]
+        BO_CELC("Block-Ops CELC")
+        n9["Allianz"]
+        n13["Finistere assurance"]
+        n14["Seazon"]
+        n15["Total energies"]
+        n16["OVH"]
+        n17["Tesla"]
+        BO_PENN["Block-Ops Pennylane"]
+        n8["Acensi"]
+        n18["Obsidian"]
+        n22["Starlink"]
+  end
+    BO_PENN -- manuel? --> BO_CELC
+    BO_PENN -- Présidence (6000€) --> FF_PENN
+    FF_PENN -- Rémunération (2500€) --> DN_CELC
+    FF_PENN -- Rémunération (500€) --> DN_TR
+    DN_CELC -- le 05 / 125€ --> AUCOFFRE
+    DN_CELC -- 400€ --> JOINT_DEPC
+    DN_CELC L_DN_CELC_JOINT_PREL_0@-- "64 - taxes foncieres" --> JOINT_PREL
+    DN_CELC -- "175 - charges maison" --> JOINT_PREL
+    DN_CELC -- "853- pret maison" --> JOINT_PREL
+    FF_PENN --> E & n19
+    FF_PENN -- NDF --> DN_TR
+    n1 --> n2
+    E -- 500 --> n4
+    n5 -.-> E
+    n6["LsCompta"] -. "136.80" .-> BO_CELC
+    n6 -. "118.80" .-> E
+    n6 -. "82.80€" .-> n2
+    DN_TR -- 200 --> n7
+    n8 --> BO_PENN
+    n9 -. "Assurance tesla (102.28)" .-> BO_CELC
+    BO_CELC -- Loyer siege 200€ --> DN_CELC
+    BO_CELC -- Loyer local (200€) --> n10
+    n11["DGFIP"] -.-> BO_CELC & E & n2
+    n12["CELC"] -. "pret tesla 893.44" .-> BO_CELC
+    n13 -. "RC Pro + assurance local 73.29€" .-> BO_CELC
+    n14 -. "Seazon 45.90/semaine" .-> BO_CELC
+    n15 -.-> BO_CELC
+    n1 -- NDF --> DN_TR
+    BO_PENN -- NDF --> DN_TR
+    BO_PENN -- Dividendes --> FF_PENN
+    FF_PENN -- Pret tresorerie --> n1
+    n16 -.-> BO_CELC
+    n17 -. "Connectivité Premium (9.99€)" .-> BO_CELC
+    n18 -.-> BO_CELC
+    n12 -.-> n2
+    n12 -. "Frais bancaire (4.80€)" .-> n2
+    n20 -. Assurance PNO .-> n2
+    n21 -. via CB .-> FF_PENN
+    n22 -. 40€ .-> BO_CELC
+    n23 -. 69€ .-> E
+    n24 -. "Prevoyance (61.66€)" .-> E
+
+    n5@{ shape: rounded}
+    n19@{ shape: rect}
+    n21@{ shape: rect}
+    n23@{ shape: rect}
+    n24@{ shape: rect}
+    n1@{ shape: rect}
+    n2@{ shape: rect}
+    n20@{ shape: rounded}
+    n10@{ shape: rounded}
+    n9@{ shape: rounded}
+    n13@{ shape: rounded}
+    n14@{ shape: rounded}
+    n15@{ shape: rounded}
+    n16@{ shape: rounded}
+    n17@{ shape: rounded}
+    n8@{ shape: rounded}
+    n18@{ shape: rounded}
+    n22@{ shape: rounded}
+    n6@{ shape: rounded}
+    n11@{ shape: rounded}
+    n12@{ shape: rounded}
+    style FF_PENN fill:#00C853
+    style E fill:#FF6D00
+    style n1 fill:#00C853
+    style n2 fill:#FF6D00
+    style DN_CELC fill:#FF6D00
+    style AUCOFFRE fill:#FFD600
+    style n10 fill:#FF6D00
+    style DN_TR fill:#FFCDD2
+    style JOINT_PREL fill:#FF6D00
+    style JOINT_DEPC fill:#FF6D00
+    style BO_CELC fill:#FF6D00
+    style BO_PENN fill:#00C853
+    style s5 fill:#BBDEFB
+    style s1 fill:#FFF9C4
+    style s2 fill:#E1BEE7
+    style s3 fill:#C8E6C9
+
+    L_DN_CELC_JOINT_PREL_0@{ animation: none }
