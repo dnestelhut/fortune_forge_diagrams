@@ -42,6 +42,14 @@ flowchart TB
         n18["Obsidian"]
         n22["Starlink"]
   end
+ subgraph s6["LMNP"]
+        n25["LMNP CELC"]
+        n26["LMNP Pennylane"]
+        n27["Luxo"]
+        n28["Free"]
+        n30["Tours Metropole"]
+        n29["La BelleEnergie"]
+  end
     BO_PENN -- manuel? --> BO_CELC
     BO_PENN -- Présidence (6000€) --> FF_PENN
     FF_PENN -- Rémunération (2500€) --> DN_CELC
@@ -64,8 +72,8 @@ flowchart TB
     n9 -. "Assurance tesla (102.28)" .-> BO_CELC
     BO_CELC -- Loyer siege 200€ --> DN_CELC
     BO_CELC -- Loyer local (200€) --> n10
-    n11["DGFIP"] -.-> BO_CELC & E & n2
-    n12["CELC"] -. "pret tesla 893.44" .-> BO_CELC
+    n11["DGFIP"] -.-> BO_CELC & E & n2 & n25
+    n12["CELC"] -. "pret tesla (893.44€)" .-> BO_CELC
     n13 -. "RC Pro + assurance local 73.29€" .-> BO_CELC
     n14 -. "Seazon 45.90/semaine" .-> BO_CELC
     n15 -.-> BO_CELC
@@ -83,6 +91,12 @@ flowchart TB
     n22 -. 40€ .-> BO_CELC
     n23 -. 69€ .-> E
     n24 -. "Prevoyance (61.66€)" .-> E
+    n6 -.-> n25
+    n25 --> n26
+    n27 -. ~11€ .-> n25
+    n28 -. "39.99€" .-> n25
+    n30 -.-> n25
+    n29 -.-> n25
 
     n5@{ shape: rounded}
     n19@{ shape: rect}
@@ -102,6 +116,11 @@ flowchart TB
     n8@{ shape: rounded}
     n18@{ shape: rounded}
     n22@{ shape: rounded}
+    n26@{ shape: rect}
+    n27@{ shape: rect}
+    n28@{ shape: rect}
+    n30@{ shape: rounded}
+    n29@{ shape: rounded}
     n6@{ shape: rounded}
     n11@{ shape: rounded}
     n12@{ shape: rounded}
@@ -121,5 +140,6 @@ flowchart TB
     style s1 fill:#FFF9C4
     style s2 fill:#E1BEE7
     style s3 fill:#C8E6C9
+    style s6 fill:#FFCDD2
 
     L_DN_CELC_JOINT_PREL_0@{ animation: none }
